@@ -1,119 +1,129 @@
-# finalprojectCYB333
-#This Python Log Monitoring and Alerting System scans log files for suspicious activity, including failed logins, authentication failures, malware detections, blocked IP addresses, and administrative logins. Detected events are mapped to MITRE ATT&amp;CK techniques, displayed as alerts, and saved to a CSV report for analysis.
+finalprojectCYB333
+This Python Log Monitoring and Alerting System scans log files for suspicious activity, including failed logins, authentication failures, malware detections, blocked IP addresses, and administrative logins. Detected events are mapped to MITRE ATT&amp;CK techniques, displayed as alerts, and saved to a CSV report for analysis.
 
-import re
-import csv
-from datetime import datetime
+Log Monitoring and Alerting System
 
-LOG_FILE = "sample_logs.txt"
-OUTPUT_FILE = "alerts.csv"
+Project Overview
 
-RULES = [
-    {
-        "name": "Failed Login Attempt",
-        "pattern": r"failed login|login failed|authentication failure",
-        "severity": "Medium",
-        "mitre_tactic": "Credential Access",
-        "mitre_technique": "Brute Force - T1110"
-    },
-    {
-        "name": "Successful Admin Login",
-        "pattern": r"admin login successful|root login successful",
-        "severity": "High",
-        "mitre_tactic": "Privilege Escalation",
-        "mitre_technique": "Valid Accounts - T1078"
-    },
-    {
-        "name": "Suspicious IP Activity",
-        "pattern": r"blocked ip|suspicious ip|blacklisted ip",
-        "severity": "High",
-        "mitre_tactic": "Command and Control",
-        "mitre_technique": "Application Layer Protocol - T1071"
-    },
-    {
-        "name": "Possible Malware Detection",
-        "pattern": r"malware detected|trojan|virus found",
-        "severity": "Critical",
-        "mitre_tactic": "Execution",
-        "mitre_technique": "User Execution - T1204"
-    }
-]
+This project is a Python-based Log Monitoring and Alerting System designed to automate the detection of suspicious activity within system log files. The tool scans log entries for predefined security events and generates alerts when potentially malicious activity is identified. The project demonstrates how security automation can improve threat detection and reduce the time required to review large log files manually.
 
+Project Objectives
 
-def read_logs(file_path):
-    try:
-        with open(file_path, "r") as file:
-            return file.readlines()
-    except FileNotFoundError:
-        print(f"Error: {file_path} was not found.")
-        return []
+The primary objectives of this project are:
 
+* Automate the analysis of log files.
+* Detect common security-related events.
+* Generate alerts for suspicious activity.
+* Map detected events to the MITRE ATT&CK framework.
+* Export findings to a CSV report for documentation and analysis.
 
-def analyze_logs(log_lines):
-    alerts = []
+Features
 
-    for line_number, line in enumerate(log_lines, start=1):
-        for rule in RULES:
-            if re.search(rule["pattern"], line, re.IGNORECASE):
-                alert = {
-                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                    "line_number": line_number,
-                    "rule_name": rule["name"],
-                    "severity": rule["severity"],
-                    "mitre_tactic": rule["mitre_tactic"],
-                    "mitre_technique": rule["mitre_technique"],
-                    "log_entry": line.strip()
-                }
-                alerts.append(alert)
+The system currently detects:
 
-    return alerts
+* Failed login attempts
+* Authentication failures
+* Administrative account logins
+* Suspicious or blocked IP addresses
+* Malware detections
 
+When a suspicious event is found, the program:
 
-def save_alerts(alerts, output_file):
-    if not alerts:
-        print("No suspicious activity found.")
-        return
+1. Displays an alert on the screen.
+2. Assigns a severity level.
+3. Maps the event to a MITRE ATT&CK tactic and technique.
+4. Saves all alerts to a CSV file for reporting.
 
-    fieldnames = [
-        "timestamp",
-        "line_number",
-        "rule_name",
-        "severity",
-        "mitre_tactic",
-        "mitre_technique",
-        "log_entry"
-    ]
+Project Files
 
-    with open(output_file, "w", newline="") as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(alerts)
+```text
+log_monitor.py      Main Python script
+sample_logs.txt     Sample log file used for testing
+alerts.csv          Generated alert report
+README.md           Project documentation
+```
 
-    print(f"{len(alerts)} alert(s) saved to {output_file}")
+Prerequisites
 
+Before running the project, ensure you have:
 
-def print_alerts(alerts):
-    if not alerts:
-        return
+* Python 3.8 or newer installed
+* A text editor or IDE such as Visual Studio Code
+* Basic knowledge of running Python scripts
 
-    print("\nSecurity Alerts Detected:")
-    print("-" * 60)
+Dependencies
 
-    for alert in alerts:
-        print(f"Rule: {alert['rule_name']}")
-        print(f"Severity: {alert['severity']}")
-        print(f"MITRE Tactic: {alert['mitre_tactic']}")
-        print(f"MITRE Technique: {alert['mitre_technique']}")
-        print(f"Log Entry: {alert['log_entry']}")
-        print("-" * 60)
+This project uses only Python standard libraries:
 
+```python
+re
+csv
+datetime
+```
 
-def main():
-    logs = read_logs(LOG_FILE)
-    alerts = analyze_logs(logs)
-    print_alerts(alerts)
-    save_alerts(alerts, OUTPUT_FILE)
+No additional packages are required.
 
+Installation
 
-if __name__ == "__main__":
-    main()
+Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/log-monitoring-system.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd log-monitoring-system
+```
+
+Running the Program
+
+Execute the Python script:
+
+```bash
+python log_monitor.py
+```
+
+The script will:
+
+1. Read the sample log file.
+2. Search for suspicious events.
+3. Display alerts in the terminal.
+4. Generate an alerts.csv report.
+
+Sample Output
+
+```text
+Security Alerts Detected
+
+Rule: Failed Login Attempt
+Severity: Medium
+MITRE Technique: Brute Force - T1110
+
+Rule: Possible Malware Detection
+Severity: Critical
+MITRE Technique: User Execution - T1204
+```
+
+Future Improvements
+
+Potential enhancements include:
+
+* Real-time log monitoring
+* Email alert notifications
+* Dashboard reporting
+* Additional MITRE ATT&CK mappings
+* Support for Windows Event Logs
+* Threat intelligence integration
+* Machine learning-based anomaly detection
+
+AI Usage
+
+AI tools including ChatGPT were used to assist with project planning, code development, troubleshooting, documentation, and testing. All code was reviewed and modified as necessary to ensure understanding of the project implementation.
+
+## Author
+
+Joshua Gomez
+
+Cybersecurity Security Automation Project
