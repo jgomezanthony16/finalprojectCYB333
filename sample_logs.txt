@@ -1,0 +1,50 @@
+2026-06-21 08:00:01 INFO System startup completed.
+2026-06-21 08:02:15 INFO User john logged in successfully.
+2026-06-21 08:04:22 INFO Scheduled backup started.
+2026-06-21 08:05:11 WARNING Failed login attempt for user admin from 192.168.1.101
+2026-06-21 08:05:34 WARNING Failed login attempt for user admin from 192.168.1.101
+2026-06-21 08:06:01 WARNING Authentication failure for user root from 192.168.1.102
+2026-06-21 08:07:15 INFO Backup completed successfully.
+2026-06-21 08:09:45 INFO User sarah logged in successfully.
+2026-06-21 08:12:11 ALERT Malware detected on workstation HR-PC-12
+2026-06-21 08:14:05 INFO Antivirus scan started.
+2026-06-21 08:15:17 WARNING Blocked IP 185.220.101.45 attempted connection.
+2026-06-21 08:16:30 INFO Network interface restarted.
+2026-06-21 08:18:01 INFO User mike logged in successfully.
+2026-06-21 08:20:44 WARNING Failed login attempt for user administrator from 203.0.113.25
+2026-06-21 08:21:11 WARNING Failed login attempt for user administrator from 203.0.113.25
+2026-06-21 08:21:48 WARNING Failed login attempt for user administrator from 203.0.113.25
+2026-06-21 08:23:12 INFO Software update installed.
+2026-06-21 08:25:56 INFO Admin login successful from 192.168.1.10
+2026-06-21 08:27:03 INFO User leah logged in successfully.
+2026-06-21 08:29:17 INFO File synchronization completed.
+2026-06-21 08:30:52 WARNING Suspicious IP detected: 45.134.26.88
+2026-06-21 08:31:33 INFO DNS cache refreshed.
+2026-06-21 08:33:02 ALERT Trojan detected in email attachment.
+2026-06-21 08:35:10 INFO User david logged out.
+2026-06-21 08:36:27 INFO New USB device connected.
+2026-06-21 08:38:14 WARNING Authentication failure for user guest from 172.16.0.15
+2026-06-21 08:40:01 INFO Scheduled task executed.
+2026-06-21 08:42:55 WARNING Blocked IP 91.218.114.23 attempted connection.
+2026-06-21 08:45:08 INFO User maria logged in successfully.
+2026-06-21 08:47:30 INFO Firewall configuration updated.
+2026-06-21 08:49:11 ALERT Malware detected on workstation FIN-PC-07
+2026-06-21 08:50:42 INFO User backup service completed.
+2026-06-21 08:52:15 WARNING Failed login attempt for user root from 198.51.100.18
+2026-06-21 08:52:44 WARNING Failed login attempt for user root from 198.51.100.18
+2026-06-21 08:53:12 WARNING Failed login attempt for user root from 198.51.100.18
+2026-06-21 08:54:36 INFO User john logged out.
+2026-06-21 08:56:09 INFO Disk cleanup completed.
+2026-06-21 08:58:21 INFO User emma logged in successfully.
+2026-06-21 09:00:05 WARNING Blacklisted IP 103.27.203.77 attempted access.
+2026-06-21 09:02:13 INFO System health check passed.
+2026-06-21 09:04:49 ALERT Virus found in downloaded file.
+2026-06-21 09:06:20 INFO Security definitions updated.
+2026-06-21 09:08:34 INFO User admin logged out.
+2026-06-21 09:10:17 WARNING Failed login attempt for user serviceaccount from 45.76.12.44
+2026-06-21 09:12:08 INFO Backup verification completed.
+2026-06-21 09:14:26 INFO User josh logged in successfully.
+2026-06-21 09:16:02 WARNING Suspicious IP detected: 66.240.192.138
+2026-06-21 09:18:45 INFO Patch installation completed.
+2026-06-21 09:20:51 ALERT Malware detected on workstation ENG-PC-05
+2026-06-21 09:22:13 INFO System running normally.
